@@ -33,15 +33,19 @@ def predict(seed, NaOH, SDA, B2O3, seed_amount, time, si_al, fd):
     - fd: FD input variable (numerical)
     
     Returns:
-    - Output prediction (rounded to 2 decimal places)
+    - Output prediction (rounded to 0: success or fail)
     """
     
     # Get the index of the input `seed` in the encoded array
     seed_index = seed_values.index(seed)
     seed_vector = seed_encoded[seed_index]  # Get the one-hot encoded vector for the seed
     
+    # Multiply `si_al` and `fd` to treat them as a single value
+    si_al_fd_product = si_al * fd
+    
     # Prepare the input array with the provided parameters, including the one-hot encoded seed
-    input_array = np.array([[NaOH, SDA, B2O3, seed_amount, time, si_al, fd] + list(seed_vector)])
+    # Replace the `si_al` and `fd` values with their product
+    input_array = np.array([[NaOH, SDA, B2O3, seed_amount, time, si_al_fd_product] + list(seed_vector)])
     
     # Scale input values using the pre-fitted scaler
     input_scaled = scaler.transform(input_array)
@@ -49,7 +53,7 @@ def predict(seed, NaOH, SDA, B2O3, seed_amount, time, si_al, fd):
     # Make prediction using the best model
     output = best_model.predict(input_scaled)[0]
 
-    return round(output, 0)  # Return the prediction to be either a success or a fail
+    return round(output, 0)  # Return the prediction to be either a success (1) or a fail (0)
 
 # Create the Gradio interface with sliders for each input variable
 iface = gr.Interface(

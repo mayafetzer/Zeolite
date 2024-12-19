@@ -13,6 +13,15 @@ Here is the public app for the model:
 
 ## Files in this repository
 
+Dataset_3_zeeolites.xlsx - the dataset provided for analysis
+
+best_model.pkl - the pickle file with the model
+
+scaler.pkl - the pickle file with the scaler
+
+Fetzer_CHEG472_FINAL.ipynb - the Google colab file used for analysis
+
+
 ## Prerequisites
 
 ### Python

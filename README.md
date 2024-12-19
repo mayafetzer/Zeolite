@@ -50,6 +50,16 @@ o Crystallization temperature (°C)
 
 o Crystallization time (days)
 
+## Summary of Analysis
+
+Overall, while there are not strong correlations present in the dataset, it is possible to create a machine learning GUI platform to predict the success of different zeolite formations. 
+
+The best model chosen was random forest, but it did not show a great test-train split. If further time permitted, I would have liked to continue to hyperparameter train the model to make sure that it worked the best it could. I would have also liked to continue to try a variety of different models to see if any other models would have been better at predicted the success or failure of the zeolite formation.
+
+This model can be used for researchers to have a better understanding of what to prioritize when forming zeolites. It is important for researchers to save time and effort in the lab because that ultimately saves money for the person who is paying for the research.
+
+When using this model, it is important to recognize that the R2 is not perfect and that it will not always be completely accurate in its prediction. The model needs to be used with caution and in the future if further time permitted, the model could be reinforced with results gained from a lab so that it could become more accurate. 
+
 ## Public App
 Here is the public app for the model: https://huggingface.co/spaces/mayafetzer/Zeolite
 
